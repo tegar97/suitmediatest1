@@ -5,4 +5,6 @@
     <string name="polindrome">Polindrome</string>
     <string name="hint_name">Name</string>
     <string name="retry">Coba lagi</string>
+    <string name="profile_icon_content_text">Profile icon</string>
+    <string name="back_to_first_screen_text">Back to first screen</string>
 </resources>

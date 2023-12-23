@@ -39,7 +39,6 @@ class ThirdScreen : AppCompatActivity() {
 
     private fun setUserData() {
         val adapter = UsersAdapter{ user ->
-
             val intent = Intent()
             intent.putExtra(FIRST_NAME, user.firstName)
             setResult(REQUEST_CODE, intent)

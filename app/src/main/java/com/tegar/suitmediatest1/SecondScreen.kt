@@ -1,13 +1,15 @@
 package com.tegar.suitmediatest1
 
-import android.app.Activity
+import android.R
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
+import android.graphics.Color
+import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
-import android.util.Log
+import android.view.MenuItem
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.appcompat.app.AppCompatActivity
 import com.tegar.suitmediatest1.databinding.ActivitySecondScreenBinding
-import com.tegar.suitmediatest1.databinding.ActivityThirdScreenBinding
+
 
 class SecondScreen : AppCompatActivity() {
 
@@ -27,6 +29,14 @@ class SecondScreen : AppCompatActivity() {
         binding = ActivitySecondScreenBinding.inflate(layoutInflater)
 
         setContentView(binding.root)
+        val toolbar = binding.toolbar
+
+        binding.backButton.setOnClickListener {
+            onBackButtonClick()
+        }
+
+
+
         binding.btnChooseUser.setOnClickListener {
             nextToThirdScreen()
         }
@@ -47,6 +57,10 @@ class SecondScreen : AppCompatActivity() {
 //            Log.d("YourCallingActivity", "Received firstName: $firstName")
 //        }
 //    }
+
+    private fun onBackButtonClick() {
+        finish()
+    }
     companion  object {
         const val REQUEST_CODE = 123
     }
