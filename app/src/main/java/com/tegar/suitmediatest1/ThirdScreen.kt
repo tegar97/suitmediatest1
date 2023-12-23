@@ -1,5 +1,7 @@
 package com.tegar.suitmediatest1
 
+import android.app.Activity
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
@@ -36,7 +38,14 @@ class ThirdScreen : AppCompatActivity() {
     }
 
     private fun setUserData() {
-        val adapter = UsersAdapter()
+        val adapter = UsersAdapter{ user ->
+
+            val intent = Intent()
+            intent.putExtra(FIRST_NAME, user.firstName)
+            setResult(REQUEST_CODE, intent)
+            finish()
+
+        }
 
         adapter.addLoadStateListener { loadState ->
             val isListEmpty = loadState.refresh is LoadState.NotLoading && adapter.itemCount == 0
@@ -65,5 +74,10 @@ class ThirdScreen : AppCompatActivity() {
 
 
 
+    }
+
+    companion  object {
+        const val REQUEST_CODE = 110
+        const val FIRST_NAME = "extra_first_name"
     }
 }

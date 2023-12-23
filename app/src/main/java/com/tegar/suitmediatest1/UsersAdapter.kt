@@ -9,7 +9,9 @@ import com.bumptech.glide.Glide
 import com.tegar.suitmediatest1.data.remote.response.User
 import com.tegar.suitmediatest1.databinding.UserCardBinding
 
-class UsersAdapter  : PagingDataAdapter<User,UsersAdapter.MyViewHolder>(DIFF_CALLBACK){
+class UsersAdapter(
+    private val onItemClickListener: (User) -> Unit
+) : PagingDataAdapter<User,UsersAdapter.MyViewHolder>(DIFF_CALLBACK){
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
 
         val users = getItem(position)
@@ -20,18 +22,20 @@ class UsersAdapter  : PagingDataAdapter<User,UsersAdapter.MyViewHolder>(DIFF_CAL
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): UsersAdapter.MyViewHolder {
         val binding = UserCardBinding.inflate(LayoutInflater.from(parent.context) , parent, false)
-        return MyViewHolder(binding)
+        return MyViewHolder(binding , onItemClickListener)
     }
 
 
-    class  MyViewHolder(private val binding: UserCardBinding) : RecyclerView.ViewHolder(binding.root) {
+    class  MyViewHolder(private val binding: UserCardBinding ,         private val onItemClickListener: (User) -> Unit) : RecyclerView.ViewHolder(binding.root) {
 
         fun bind(user : User) {
             binding.apply{
                 tvItemName.text = user.firstName
                 tvItemDescription.text = user.email
                 Glide.with(binding.root.context).load(user.avatar).into(binding.imgItemPhoto)
-
+                itemView.setOnClickListener {
+                    onItemClickListener.invoke(user)
+                }
             }
         }
 
