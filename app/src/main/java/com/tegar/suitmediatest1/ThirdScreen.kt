@@ -21,7 +21,10 @@ class ThirdScreen : AppCompatActivity() {
         binding = ActivityThirdScreenBinding.inflate(layoutInflater)
 
         setContentView(binding.root)
+        binding.swiperefresh.setOnRefreshListener {
+            setUserData()
 
+        }
         setupViews()
         setUserData()
     }
@@ -44,6 +47,11 @@ class ThirdScreen : AppCompatActivity() {
             } else {
                 binding.emptyMessage.visibility = View.GONE
                 binding.rvUsers.visibility = View.VISIBLE
+            }
+
+
+            if (binding.swiperefresh.isRefreshing && loadState.refresh is LoadState.NotLoading) {
+                binding.swiperefresh.isRefreshing = false
             }
         }
         binding.rvUsers.adapter = adapter.withLoadStateFooter(
