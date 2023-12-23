@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">SuitmediaTest1</string>
+    <string name="btn_text_check">Check</string>
+    <string name="btn_text_next">Next</string>
+    <string name="polindrome">Polindrome</string>
+    <string name="hint_name">Name</string>
 </resources>
