@@ -7,4 +7,16 @@
     <string name="retry">Coba lagi</string>
     <string name="profile_icon_content_text">Profile icon</string>
     <string name="back_to_first_screen_text">Back to first screen</string>
+    <string name="dummy_name">Jhon Doe</string>
+    <string name="second_screen_title">Second Screen</string>
+    <string name="selected_dynamic_value">Selected %s</string>
+    <string name="selected_null_user">Selected User name </string>
+    <string name="result_title">Hasil</string>
+    <string name="palindrome">Palindrome</string>
+    <string name="not_palindrome">Bukan Palindrome</string>
+    <string name="please_fill_name">Please fill in the name</string>
+    <string name="sentence_empty_message">Sentence is empty</string>
+
+    <string name="third_screen_title">Third Screen</string>
+    <string name="welcome_text">Welcome</string>
 </resources>

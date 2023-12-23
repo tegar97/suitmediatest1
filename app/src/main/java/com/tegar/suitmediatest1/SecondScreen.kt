@@ -1,10 +1,11 @@
 package com.tegar.suitmediatest1
 
-import android.R
+
 import android.content.Intent
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
+import android.util.Log
 import android.view.MenuItem
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
@@ -20,7 +21,15 @@ class SecondScreen : AppCompatActivity() {
         if (result.resultCode == ThirdScreen.REQUEST_CODE && result.data != null) {
             val selectedValue =
                 result.data?.getStringExtra(ThirdScreen.FIRST_NAME)
-            binding.selectUserText.text = "Selected : $selectedValue"
+
+
+
+            val dynamicString = if (selectedValue == "extra_first_name") {
+                getString(R.string.selected_dynamic_value, "User Name")
+            } else {
+                getString(R.string.selected_dynamic_value, selectedValue)
+            }
+            binding.selectUserText.text = dynamicString
         }
     }
 
@@ -28,9 +37,11 @@ class SecondScreen : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivitySecondScreenBinding.inflate(layoutInflater)
 
-        setContentView(binding.root)
-        val toolbar = binding.toolbar
 
+        setContentView(binding.root)
+        val userNameText = binding.userNameText
+        val name = intent.getStringExtra("NAME_EXTRA")
+        userNameText.text = name
         binding.backButton.setOnClickListener {
             onBackButtonClick()
         }
@@ -41,28 +52,16 @@ class SecondScreen : AppCompatActivity() {
             nextToThirdScreen()
         }
     }
+    private fun onBackButtonClick(){
+        finish()
+    }
 
     private fun nextToThirdScreen() {
         val thirdScreenActivity = Intent(this@SecondScreen,ThirdScreen::class.java)
         resultLauncher.launch(thirdScreenActivity)
     }
 
-//    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-//        super.onActivityResult(requestCode, resultCode, data)
-//        if (requestCode == REQUEST_CODE && resultCode == Activity.RESULT_OK) {
-//            val firstName = data?.getStringExtra("firstName")
-//
-//            binding.selectUserText.text = firstName
-//            // Lakukan sesuatu dengan data yang diterima
-//            Log.d("YourCallingActivity", "Received firstName: $firstName")
-//        }
-//    }
 
-    private fun onBackButtonClick() {
-        finish()
-    }
-    companion  object {
-        const val REQUEST_CODE = 123
-    }
+
 
 }

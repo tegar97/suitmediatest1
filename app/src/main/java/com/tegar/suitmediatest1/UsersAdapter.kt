@@ -31,8 +31,8 @@ class UsersAdapter(
         fun bind(user : User) {
             binding.apply{
                 tvItemName.text = user.firstName
-                tvItemDescription.text = user.email
-                Glide.with(binding.root.context).load(user.avatar).into(binding.imgItemPhoto)
+                tvItemEmail.text = user.email
+                Glide.with(binding.root.context).load(user.avatar).circleCrop().into(binding.imgItemPhoto)
                 itemView.setOnClickListener {
                     onItemClickListener.invoke(user)
                 }

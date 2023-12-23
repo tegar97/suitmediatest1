@@ -38,15 +38,10 @@
             <TextView
 
                 android:id="@+id/title"
-
                 android:layout_width="wrap_content"
-
                 android:layout_height="wrap_content"
-
                 android:layout_gravity="center"
-
-                android:text="Second Screen"
-
+                android:text="@string/second_screen_title"
                 android:textColor="@android:color/black"
                 android:fontFamily="@font/poppins_bold"
 
@@ -62,7 +57,10 @@
         android:id="@+id/select_user_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Selected User Name"
+        android:textSize="24sp"
+        android:textColor="@color/dark"
+        android:fontFamily="@font/poppins_bold"
+        android:text="@string/selected_null_user"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -73,7 +71,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:text="Welcome"
+        android:textColor="@color/dark"
+        android:text="@string/welcome_text"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/appBarLayout" />
 
@@ -83,7 +82,10 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="8dp"
-        android:text="Jhon Doe"
+        android:textSize="18sp"
+        android:text="@string/dummy_name"
+        android:textColor="@color/dark"
+        android:fontFamily="@font/poppins_bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/welcome_text" />
 

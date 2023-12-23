@@ -27,10 +27,15 @@ class ThirdScreen : AppCompatActivity() {
             setUserData()
 
         }
+        binding.backButton.setOnClickListener {
+            onBackButtonClick()
+        }
         setupViews()
         setUserData()
     }
-
+    private fun onBackButtonClick(){
+        finish()
+    }
     private fun setupViews() {
         val layoutManager = LinearLayoutManager(this)
         binding.rvUsers.layoutManager = layoutManager
