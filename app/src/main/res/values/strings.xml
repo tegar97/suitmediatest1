@@ -4,4 +4,5 @@
     <string name="btn_text_next">Next</string>
     <string name="polindrome">Polindrome</string>
     <string name="hint_name">Name</string>
+    <string name="retry">Coba lagi</string>
 </resources>
